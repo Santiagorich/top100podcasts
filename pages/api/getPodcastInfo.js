@@ -11,7 +11,6 @@ const getPodcastInfo = async (id) => {
 };
 
 export default async function handler(req, res) {
-  let promises = [];
   const data = await getPodcastInfo(req.query.id);
   if (data.results) {
     const feed = await parser.parseURL(data.results[0].feedUrl);
